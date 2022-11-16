@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, FlatList, View } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 
 const BookList = () => {
   const books = [
@@ -12,19 +12,28 @@ const BookList = () => {
     { name: "book7" },
   ];
   return (
-    <FlatList
-      style={styles.list}
-      data={books}
-      keyExtractor={(item) => item.name}
-      renderItem={({ item }) => {
-        return (
-          <View style={styles.bookHolder}>
-            <Text style={styles.book}>{item.name}</Text>
-          </View>
-        );
-      }}
-    />
+    <View>
+      {/* <View style={styles.bookHolder}>
+        <Text style={styles.book}>{books[1].name}</Text>
+      </View> */}
+      {books.map((item) => (
+        <View style={styles.bookHolder} key={item.name}>
+          <Text style={styles.book}>{item.name}</Text>
+        </View>
+      ))}
+    </View>
   );
+
+  // <FlatList
+  //   style={styles.list}
+  //   data={books}
+  //   keyExtractor={(item) => item.name}
+  //   renderItem={({ item }) => {
+  //     return (
+  //       <View style={styles.bookHolder}>
+  //         <Text style={styles.book}>{item.name}</Text>
+  //       </View>
+  //     );
 };
 
 const styles = StyleSheet.create({
@@ -34,7 +43,7 @@ const styles = StyleSheet.create({
   },
   bookHolder: {
     backgroundColor: "rgb(102,255,255)",
-    height: "100px",
+    height: 200,
     display: "flex",
     justifyContent: "center",
     shadowColor: "red",
@@ -45,10 +54,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.66,
     shadowRadius: 10.32,
     elevation: 16,
-    borderBottomWidth: "2px",
-    borderLeftWidth: "5px",
+    borderBottomWidth: 2,
+    borderLeftWidth: 5,
     borderLeftColor: "blue",
-    borderRightWidth: "5px",
+    borderRightWidth: 5,
     borderRightColor: "blue",
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
@@ -56,7 +65,9 @@ const styles = StyleSheet.create({
     borderBottomStartRadius: 20,
   },
   book: {
-    fontSize: "18px",
+    fontSize: 18,
+    color: "red",
+    textAlign: "center",
   },
 });
 

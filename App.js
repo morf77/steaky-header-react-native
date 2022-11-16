@@ -8,7 +8,7 @@ const navigator = createStackNavigator(
   },
   {
     initialRoutName: "Book",
-    defaultNavgationOptions: {
+    defaultNavigationOptions: {
       title: "Books",
     },
   }

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { ScrollView, View, StyleSheet, Animated } from "react-native";
-import SteakyHeader from "../components/SteakyHeader";
+import SteakHeader from "../components/SteakyHeader";
 import BookList from "../components/BookList";
 
 const BookScreen = () => {
@@ -8,8 +8,8 @@ const BookScreen = () => {
   console.log(scrollOffsetY);
   return (
     <View style={styles.book}>
-      <SteakyHeader animHeaderValue={scrollOffsetY} />
-      <ScrollView
+      <SteakHeader animHeaderValue={scrollOffsetY} />
+      <Animated.ScrollView
         scrollEventThrottle={16}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: scrollOffsetY } } }],
@@ -17,7 +17,7 @@ const BookScreen = () => {
         )}
       >
         <BookList />
-      </ScrollView>
+      </Animated.ScrollView>
     </View>
   );
 };
